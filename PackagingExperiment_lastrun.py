@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Sun Oct 16 21:05:06 2022
+    on October 17, 2022, at 12:05
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -52,7 +52,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/psmathe/Library/CloudStorage/GoogleDrive-psmathe@g.clemson.edu/My Drive/CPSC 4120/eyetracking-experiment/PackagingExperiment_lastrun.py',
+    originPath='\\\\home.clemson.edu\\psmathe\\Desktop\\CPSC 4120\\Experiment\\eyetracking-experiment\\PackagingExperiment_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -127,28 +127,28 @@ calib_resp = keyboard.Keyboard()
 stimulusClock = core.Clock()
 Healthy_food = ['stimuli/banana_chips.png', 'stimuli/fruit_cup.png']
 Unhealthy_food = ['stimuli/nacho_chips.png','stimuli/potato_chips.png']
-Random_images = ['stimuli/distractions/watch.jpg', 'stimuli/distractions/shoppingcart.jpg']
+Random_image = ['stimuli/distractions/watch.jpg', 'stimuli/distractions/shoppingcart.jpg']
 TopLeft = visual.ImageStim(
     win=win,
-    name='TopLeft', 
+    name='TopLeft', units='pix', 
     image='sin', mask=None,
-    ori=0.0, pos=(0, 0), size=(0.5, 0.5),
+    ori=0.0, pos=(-.33, -.5), size=(0.5, 0.5),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-1.0)
 TopRight = visual.ImageStim(
     win=win,
-    name='TopRight', 
+    name='TopRight', units='norm', 
     image='sin', mask=None,
-    ori=0.0, pos=(0, 0), size=(0.5, 0.5),
+    ori=0.0, pos=(.33, -.5), size=(0.5, 0.5),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-2.0)
 Bottom = visual.ImageStim(
     win=win,
-    name='Bottom', 
+    name='Bottom', units='norm', 
     image='sin', mask=None,
-    ori=0.0, pos=(0, 0), size=(0.5, 0.5),
+    ori=0.0, pos=(0, .5), size=(0.5, 0.5),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-3.0)
@@ -448,10 +448,12 @@ for thisStimulus_loop in stimulus_loop:
     
     # ------Prepare to start Routine "stimulus"-------
     continueRoutine = True
+    routineTimer.add(10.000000)
     # update component parameters for each repeat
+    import random
     random.seed()
-    image_num = 3
-    Image_index = random.randrange(3)
+    image_num = 2
+    Image_index = random.randrange(2)
     
     images = [Healthy_food[Image_index], Unhealthy_food[Image_index], Random_image[Image_index]]
     random.shuffle(images)
@@ -477,7 +479,7 @@ for thisStimulus_loop in stimulus_loop:
     frameN = -1
     
     # -------Run Routine "stimulus"-------
-    while continueRoutine:
+    while continueRoutine and routineTimer.getTime() > 0:
         # get current time
         t = stimulusClock.getTime()
         tThisFlip = win.getFutureFlipTime(clock=stimulusClock)
@@ -510,6 +512,14 @@ for thisStimulus_loop in stimulus_loop:
             TopRight.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(TopRight, 'tStartRefresh')  # time at next scr refresh
             TopRight.setAutoDraw(True)
+        if TopRight.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > TopRight.tStartRefresh + 10-frameTolerance:
+                # keep track of stop time/frame for later
+                TopRight.tStop = t  # not accounting for scr refresh
+                TopRight.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(TopRight, 'tStopRefresh')  # time at next scr refresh
+                TopRight.setAutoDraw(False)
         
         # *Bottom* updates
         if Bottom.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -519,6 +529,14 @@ for thisStimulus_loop in stimulus_loop:
             Bottom.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(Bottom, 'tStartRefresh')  # time at next scr refresh
             Bottom.setAutoDraw(True)
+        if Bottom.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > Bottom.tStartRefresh + 10-frameTolerance:
+                # keep track of stop time/frame for later
+                Bottom.tStop = t  # not accounting for scr refresh
+                Bottom.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(Bottom, 'tStopRefresh')  # time at next scr refresh
+                Bottom.setAutoDraw(False)
         # *etRecord* updates
         if etRecord.status == NOT_STARTED and t >= 0.0-frameTolerance:
             # keep track of start time/frame for later
@@ -566,8 +584,6 @@ for thisStimulus_loop in stimulus_loop:
     # make sure the eyetracker recording stops
     if etRecord.status != FINISHED:
         etRecord.status = FINISHED
-    # the Routine "stimulus" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
     thisExp.nextEntry()
     
 # completed 2.0 repeats of 'stimulus_loop'

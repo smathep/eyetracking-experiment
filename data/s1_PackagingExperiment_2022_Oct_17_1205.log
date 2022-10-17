@@ -1,0 +1,64 @@
+2.4062 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+15.7008 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x00000203294123C8>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x00000203295D9828>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+15.7014 	EXP 	window1: mouseVisible = True
+15.7015 	EXP 	window1: recordFrameIntervals = False
+15.8670 	EXP 	window1: recordFrameIntervals = True
+16.0506 	EXP 	window1: recordFrameIntervals = False
+19.2783 	EXP 	Created calib_instr_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='calib_instr_text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='norm', win=Window(...), wrapWidth=1)
+19.2797 	EXP 	Created calib_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='calib_text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='norm', win=Window(...), wrapWidth=1)
+19.2890 	EXP 	Created TopLeft = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='TopLeft', opacity=1, ori=0.0, pos=array([-0.33, -0.5 ]), size=array([0.5, 0.5]), texRes=128.0, units='pix', win=Window(...))
+19.2940 	EXP 	Created TopRight = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='TopRight', opacity=1, ori=0.0, pos=array([ 0.33, -0.5 ]), size=array([0.5, 0.5]), texRes=128.0, units='norm', win=Window(...))
+19.3024 	EXP 	Created Bottom = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='Bottom', opacity=1, ori=0.0, pos=array([0. , 0.5]), size=array([0.5, 0.5]), texRes=128.0, units='norm', win=Window(...))
+19.3170 	EXP 	calib_instr_text: autoDraw = True
+20.3190 	EXP 	Created sequence: sequential, trialTypes=1, nReps=0, seed=None
+20.3313 	EXP 	Imported stim.csv as conditions, 6 conditions, 1 params
+20.3317 	EXP 	Created sequence: random, trialTypes=6, nReps=2, seed=None
+20.3320 	EXP 	New trial (rep=0, index=0): OrderedDict([('stim', './stimuli/banana_chips.png')])
+21.1785 	DATA 	Keypress: space
+21.2014 	EXP 	calib_instr_text: autoDraw = False
+21.2014 	EXP 	TopLeft: image = 'stimuli/distractions/watch.jpg'
+21.2014 	EXP 	TopRight: image = 'stimuli/nacho_chips.png'
+21.2014 	EXP 	Bottom: image = 'stimuli/banana_chips.png'
+21.2014 	EXP 	TopLeft: autoDraw = True
+21.2014 	EXP 	TopRight: autoDraw = True
+21.2014 	EXP 	Bottom: autoDraw = True
+30.3394 	EXP 	New trial (rep=0, index=1): OrderedDict([('stim', './stimuli/nacho_chips.png')])
+30.6840 	EXP 	TopLeft: autoDraw = False
+30.6840 	EXP 	TopRight: autoDraw = False
+30.6840 	EXP 	Bottom: autoDraw = False
+30.6840 	EXP 	TopLeft: image = 'stimuli/distractions/watch.jpg'
+30.6840 	EXP 	TopRight: image = 'stimuli/nacho_chips.png'
+30.6840 	EXP 	Bottom: image = 'stimuli/banana_chips.png'
+30.6840 	EXP 	TopLeft: autoDraw = True
+30.6840 	EXP 	TopRight: autoDraw = True
+30.6840 	EXP 	Bottom: autoDraw = True
+39.3699 	DATA 	Mouse: Left button down, pos=(1029,665)
+39.4196 	DATA 	Mouse:  Left button up, pos=(1029,665)
+40.3396 	EXP 	New trial (rep=0, index=2): OrderedDict([('stim', './stimuli/distractions/shoppingcard.jpg')])
+41.0732 	DATA 	Mouse: Left button down, pos=(1035,555)
+41.0736 	DATA 	Mouse:  Left button up, pos=(1035,555)
+41.0739 	DATA 	Mouse: Left button down, pos=(1036,556)
+41.0743 	DATA 	Mouse:  Left button up, pos=(1036,555)
+41.0746 	DATA 	Mouse: Left button down, pos=(1036,555)
+41.0749 	DATA 	Mouse:  Left button up, pos=(1036,555)
+41.0752 	DATA 	Mouse: Left button down, pos=(1033,564)
+41.0754 	DATA 	Mouse:  Left button up, pos=(1033,564)
+41.0757 	DATA 	Mouse: Left button down, pos=(1030,566)
+41.0758 	DATA 	Mouse:  Left button up, pos=(1030,566)
+41.0761 	DATA 	Mouse: Left button down, pos=(1021,571)
+41.0852 	EXP 	TopLeft: autoDraw = False
+41.0852 	EXP 	TopRight: autoDraw = False
+41.0852 	EXP 	Bottom: autoDraw = False
+41.0852 	EXP 	TopLeft: image = 'stimuli/nacho_chips.png'
+41.0852 	EXP 	TopRight: image = 'stimuli/banana_chips.png'
+41.0852 	EXP 	Bottom: image = 'stimuli/distractions/watch.jpg'
+41.0852 	EXP 	TopLeft: autoDraw = True
+41.0852 	EXP 	TopRight: autoDraw = True
+41.0852 	EXP 	Bottom: autoDraw = True
+41.1052 	DATA 	Mouse:  Left button up, pos=(1021,571)
+41.1863 	DATA 	Mouse: Left button down, pos=(1021,571)
+41.2531 	DATA 	Mouse:  Left button up, pos=(1021,571)
+41.3364 	DATA 	Mouse: Left button down, pos=(1021,571)
+41.3862 	DATA 	Mouse:  Left button up, pos=(1021,571)
+48.7193 	DATA 	Keypress: escape
+48.9434 	EXP 	window1: mouseVisible = True

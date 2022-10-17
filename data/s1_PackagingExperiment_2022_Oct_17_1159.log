@@ -1,0 +1,54 @@
+2.3697 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+50.9722 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000023E7607A3C8>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x0000023E6E7EF7B8>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+50.9729 	EXP 	window1: mouseVisible = True
+50.9729 	EXP 	window1: recordFrameIntervals = False
+51.1381 	EXP 	window1: recordFrameIntervals = True
+51.3215 	EXP 	window1: recordFrameIntervals = False
+54.5534 	EXP 	Created calib_instr_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='calib_instr_text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='norm', win=Window(...), wrapWidth=1)
+54.5548 	EXP 	Created calib_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='calib_text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='norm', win=Window(...), wrapWidth=1)
+54.5615 	EXP 	Created TopLeft = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='TopLeft', opacity=1, ori=0.0, pos=array([-0.33, -0.5 ]), size=array([0.5, 0.5]), texRes=128.0, units='pix', win=Window(...))
+54.5664 	EXP 	Created TopRight = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='TopRight', opacity=1, ori=0.0, pos=array([ 0.33, -0.5 ]), size=array([0.5, 0.5]), texRes=128.0, units='norm', win=Window(...))
+54.5776 	EXP 	Created Bottom = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='Bottom', opacity=1, ori=0.0, pos=array([0. , 0.5]), size=array([0.5, 0.5]), texRes=128.0, units='norm', win=Window(...))
+54.5880 	EXP 	calib_instr_text: autoDraw = True
+55.0725 	EXP 	Created sequence: sequential, trialTypes=1, nReps=0, seed=None
+55.0837 	EXP 	Imported stim.csv as conditions, 6 conditions, 1 params
+55.0841 	EXP 	Created sequence: random, trialTypes=6, nReps=2, seed=None
+55.0843 	EXP 	New trial (rep=0, index=0): OrderedDict([('stim', './stimuli/banana_chips.png')])
+55.4292 	DATA 	Keypress: space
+55.4389 	EXP 	calib_instr_text: autoDraw = False
+55.4389 	EXP 	TopLeft: image = 'stimuli/distractions/shoppingcart.jpg'
+55.4389 	EXP 	TopRight: image = 'stimuli/potato_chips.png'
+55.4389 	EXP 	Bottom: image = 'stimuli/fruit_cup.png'
+55.4389 	EXP 	TopLeft: autoDraw = True
+55.4389 	EXP 	TopRight: autoDraw = True
+55.4389 	EXP 	Bottom: autoDraw = True
+65.4384 	EXP 	TopLeft: autoDraw = False
+78.2568 	DATA 	Keypress: escape
+78.4672 	EXP 	window1: mouseVisible = True
+2.3879 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+10.3404 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001B3B687A358>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000001B3BD6F2780>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+10.3409 	EXP 	window1: mouseVisible = True
+10.3410 	EXP 	window1: recordFrameIntervals = False
+10.5066 	EXP 	window1: recordFrameIntervals = True
+10.6900 	EXP 	window1: recordFrameIntervals = False
+13.8126 	EXP 	Created calib_instr_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='calib_instr_text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='norm', win=Window(...), wrapWidth=1)
+13.8140 	EXP 	Created calib_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='calib_text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='norm', win=Window(...), wrapWidth=1)
+13.8209 	EXP 	Created TopLeft = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='TopLeft', opacity=1, ori=0.0, pos=array([-0.33, -0.5 ]), size=array([0.5, 0.5]), texRes=128.0, units='pix', win=Window(...))
+13.8258 	EXP 	Created TopRight = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='TopRight', opacity=1, ori=0.0, pos=array([ 0.33, -0.5 ]), size=array([0.5, 0.5]), texRes=128.0, units='norm', win=Window(...))
+13.8353 	EXP 	Created Bottom = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='Bottom', opacity=1, ori=0.0, pos=array([0. , 0.5]), size=array([0.5, 0.5]), texRes=128.0, units='norm', win=Window(...))
+13.8571 	EXP 	calib_instr_text: autoDraw = True
+15.9919 	EXP 	Created sequence: sequential, trialTypes=1, nReps=0, seed=None
+16.0054 	EXP 	Imported stim.csv as conditions, 6 conditions, 1 params
+16.0057 	EXP 	Created sequence: random, trialTypes=6, nReps=2, seed=None
+16.0060 	EXP 	New trial (rep=0, index=0): OrderedDict([('stim', './stimuli/banana_chips.png')])
+16.3444 	DATA 	Keypress: space
+16.3571 	EXP 	calib_instr_text: autoDraw = False
+16.3571 	EXP 	TopLeft: image = 'stimuli/distractions/shoppingcart.jpg'
+16.3571 	EXP 	TopRight: image = 'stimuli/fruit_cup.png'
+16.3571 	EXP 	Bottom: image = 'stimuli/potato_chips.png'
+16.3571 	EXP 	TopLeft: autoDraw = True
+16.3571 	EXP 	TopRight: autoDraw = True
+16.3571 	EXP 	Bottom: autoDraw = True
+26.3571 	EXP 	TopLeft: autoDraw = False
+36.0423 	DATA 	Keypress: escape
+36.3333 	EXP 	window1: mouseVisible = True
