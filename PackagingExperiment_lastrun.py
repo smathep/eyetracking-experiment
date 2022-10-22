@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on October 17, 2022, at 12:05
+    on October 21, 2022, at 21:39
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -38,7 +38,7 @@ os.chdir(_thisDir)
 # Store info about the experiment session
 psychopyVersion = '2021.2.3'
 expName = 'PackagingExperiment'  # from the Builder filename that created this script
-expInfo = {'participant': '', 'task': 'calib'}
+expInfo = {'participant': '', 'task': 'Experiment'}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
 if dlg.OK == False:
     core.quit()  # user pressed cancel
@@ -123,16 +123,29 @@ calib_text = visual.TextStim(win=win, name='calib_text',
     depth=-1.0);
 calib_resp = keyboard.Keyboard()
 
+# Initialize components for Routine "trial_instr"
+trial_instrClock = core.Clock()
+text = visual.TextStim(win=win, name='text',
+    text='<insert instructions here>\n\nPress spacebar to continue...',
+    font='Open Sans',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+key_resp = keyboard.Keyboard()
+
 # Initialize components for Routine "stimulus"
 stimulusClock = core.Clock()
-Healthy_food = ['stimuli/banana_chips.png', 'stimuli/fruit_cup.png']
-Unhealthy_food = ['stimuli/nacho_chips.png','stimuli/potato_chips.png']
-Random_image = ['stimuli/distractions/watch.jpg', 'stimuli/distractions/shoppingcart.jpg']
+import random
+Healthy_food = ['stimuli/banana_chips.png', 'stimuli/fruit_cup.png', 'stimuli/clementines.png', 'stimuli/health_bar.png']
+Unhealthy_food = ['stimuli/nacho_chips.png','stimuli/lays_chips.png', 'stimuli/chocolate_bar.png', 'stimuli/chocolate_cookies.png']
+Random_image = ['stimuli/distractions/watch.png', 'stimuli/distractions/cart.png', 'stimuli/distractions/scissors.png', 'stimuli/distractions/basketball.png']
+random.seed()
 TopLeft = visual.ImageStim(
     win=win,
-    name='TopLeft', units='pix', 
+    name='TopLeft', units='norm', 
     image='sin', mask=None,
-    ori=0.0, pos=(-.33, -.5), size=(0.5, 0.5),
+    ori=0.0, pos=(-.33, -.5), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-1.0)
@@ -140,7 +153,7 @@ TopRight = visual.ImageStim(
     win=win,
     name='TopRight', units='norm', 
     image='sin', mask=None,
-    ori=0.0, pos=(.33, -.5), size=(0.5, 0.5),
+    ori=0.0, pos=(.33, -.5), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-2.0)
@@ -148,11 +161,11 @@ Bottom = visual.ImageStim(
     win=win,
     name='Bottom', units='norm', 
     image='sin', mask=None,
-    ori=0.0, pos=(0, .5), size=(0.5, 0.5),
+    ori=0.0, pos=(0, .5), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-3.0)
-etRecord = hardware.eyetracker.EyetrackerControl(
+trial_eyetracker = hardware.eyetracker.EyetrackerControl(
     server=ioServer,
     tracker=eyetracker
 )
@@ -249,7 +262,7 @@ thisExp.addData('calib_instr_text.stopped', calib_instr_text.tStopRefresh)
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-calib_loop = data.TrialHandler(nReps=0.0, method='sequential', 
+calib_loop = data.TrialHandler(nReps=10.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
     trialList=[None],
     seed=None, name='calib_loop')
@@ -289,33 +302,6 @@ for thisCalib_loop in calib_loop:
     # clear any keypresses from during calibration so they don't interfere with the experiment
     defaultKeyboard.clearEvents()
     # the Routine "calibration" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
-    
-    # -------Run Routine 'validation'-------
-    
-    # define target for validation
-    validationTarget = visual.TargetStim(win, 
-        name='validationTarget',
-        radius=0.01, fillColor='', borderColor='black', lineWidth=2.0,
-        innerRadius=0.0035, innerFillColor='green', innerBorderColor='black', innerLineWidth=2.0,
-        colorSpace='rgb', units=None
-    )
-    # define parameters for validation
-    validation = iohub.ValidationProcedure(win,
-        target=validationTarget,
-        gaze_cursor='green', 
-        positions='FIVE_POINTS', randomize_positions=True,
-        expand_scale=1.0, target_duration=1.0,
-        enable_position_animation=True, target_delay=1.0,
-        progress_on_key=None,
-        show_results_screen=True, save_results_screen=False,
-        color_space='rgb', unit_type=None
-    )
-    # run validation
-    validation.run()
-    # clear any keypresses from during validation so they don't interfere with the experiment
-    defaultKeyboard.clearEvents()
-    # the Routine "validation" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
     # ------Prepare to start Routine "calib_cont"-------
@@ -424,13 +410,109 @@ for thisCalib_loop in calib_loop:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 0.0 repeats of 'calib_loop'
+# completed 10.0 repeats of 'calib_loop'
 
+
+# ------Prepare to start Routine "trial_instr"-------
+continueRoutine = True
+# update component parameters for each repeat
+key_resp.keys = []
+key_resp.rt = []
+_key_resp_allKeys = []
+# keep track of which components have finished
+trial_instrComponents = [text, key_resp]
+for thisComponent in trial_instrComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+trial_instrClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "trial_instr"-------
+while continueRoutine:
+    # get current time
+    t = trial_instrClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=trial_instrClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text* updates
+    if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text.frameNStart = frameN  # exact frame index
+        text.tStart = t  # local t and not account for scr refresh
+        text.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
+        text.setAutoDraw(True)
+    
+    # *key_resp* updates
+    waitOnFlip = False
+    if key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        key_resp.frameNStart = frameN  # exact frame index
+        key_resp.tStart = t  # local t and not account for scr refresh
+        key_resp.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(key_resp, 'tStartRefresh')  # time at next scr refresh
+        key_resp.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(key_resp.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if key_resp.status == STARTED and not waitOnFlip:
+        theseKeys = key_resp.getKeys(keyList=['space'], waitRelease=False)
+        _key_resp_allKeys.extend(theseKeys)
+        if len(_key_resp_allKeys):
+            key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
+            key_resp.rt = _key_resp_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in trial_instrComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "trial_instr"-------
+for thisComponent in trial_instrComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('text.started', text.tStartRefresh)
+thisExp.addData('text.stopped', text.tStopRefresh)
+# check responses
+if key_resp.keys in ['', [], None]:  # No response was made
+    key_resp.keys = None
+thisExp.addData('key_resp.keys',key_resp.keys)
+if key_resp.keys != None:  # we had a response
+    thisExp.addData('key_resp.rt', key_resp.rt)
+thisExp.addData('key_resp.started', key_resp.tStartRefresh)
+thisExp.addData('key_resp.stopped', key_resp.tStopRefresh)
+thisExp.nextEntry()
+# the Routine "trial_instr" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-stimulus_loop = data.TrialHandler(nReps=2.0, method='random', 
+stimulus_loop = data.TrialHandler(nReps=5.0, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('stim.csv'),
+    trialList=[None],
     seed=None, name='stimulus_loop')
 thisExp.addLoop(stimulus_loop)  # add the loop to the experiment
 thisStimulus_loop = stimulus_loop.trialList[0]  # so we can initialise stimuli with some values
@@ -448,23 +530,25 @@ for thisStimulus_loop in stimulus_loop:
     
     # ------Prepare to start Routine "stimulus"-------
     continueRoutine = True
-    routineTimer.add(10.000000)
+    routineTimer.add(5.000000)
     # update component parameters for each repeat
-    import random
-    random.seed()
-    image_num = 2
-    Image_index = random.randrange(2)
+    Healthy_index = random.randrange(4)
+    Unhealthy_index = random.randrange(4)
+    Random_index = random.randrange(4)
     
-    images = [Healthy_food[Image_index], Unhealthy_food[Image_index], Random_image[Image_index]]
+    images = [Healthy_food[Healthy_index], Unhealthy_food[Healthy_index], Random_image[Random_index]]
     random.shuffle(images)
     
     
     
+    TopLeft.setSize((0.28125, 0.5))
     TopLeft.setImage(images[0])
+    TopRight.setSize((0.28125, 0.5))
     TopRight.setImage(images[1])
+    Bottom.setSize((0.28125, 0.5))
     Bottom.setImage(images[2])
     # keep track of which components have finished
-    stimulusComponents = [TopLeft, TopRight, Bottom, etRecord]
+    stimulusComponents = [TopLeft, TopRight, Bottom, trial_eyetracker]
     for thisComponent in stimulusComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -497,7 +581,7 @@ for thisStimulus_loop in stimulus_loop:
             TopLeft.setAutoDraw(True)
         if TopLeft.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > TopLeft.tStartRefresh + 10.0-frameTolerance:
+            if tThisFlipGlobal > TopLeft.tStartRefresh + 5-frameTolerance:
                 # keep track of stop time/frame for later
                 TopLeft.tStop = t  # not accounting for scr refresh
                 TopLeft.frameNStop = frameN  # exact frame index
@@ -514,7 +598,7 @@ for thisStimulus_loop in stimulus_loop:
             TopRight.setAutoDraw(True)
         if TopRight.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > TopRight.tStartRefresh + 10-frameTolerance:
+            if tThisFlipGlobal > TopRight.tStartRefresh + 5-frameTolerance:
                 # keep track of stop time/frame for later
                 TopRight.tStop = t  # not accounting for scr refresh
                 TopRight.frameNStop = frameN  # exact frame index
@@ -531,28 +615,28 @@ for thisStimulus_loop in stimulus_loop:
             Bottom.setAutoDraw(True)
         if Bottom.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > Bottom.tStartRefresh + 10-frameTolerance:
+            if tThisFlipGlobal > Bottom.tStartRefresh + 5-frameTolerance:
                 # keep track of stop time/frame for later
                 Bottom.tStop = t  # not accounting for scr refresh
                 Bottom.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(Bottom, 'tStopRefresh')  # time at next scr refresh
                 Bottom.setAutoDraw(False)
-        # *etRecord* updates
-        if etRecord.status == NOT_STARTED and t >= 0.0-frameTolerance:
+        # *trial_eyetracker* updates
+        if trial_eyetracker.status == NOT_STARTED and t >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            etRecord.frameNStart = frameN  # exact frame index
-            etRecord.tStart = t  # local t and not account for scr refresh
-            etRecord.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(etRecord, 'tStartRefresh')  # time at next scr refresh
-            etRecord.status = STARTED
-        if etRecord.status == STARTED:
+            trial_eyetracker.frameNStart = frameN  # exact frame index
+            trial_eyetracker.tStart = t  # local t and not account for scr refresh
+            trial_eyetracker.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(trial_eyetracker, 'tStartRefresh')  # time at next scr refresh
+            trial_eyetracker.status = STARTED
+        if trial_eyetracker.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > etRecord.tStartRefresh + 10-frameTolerance:
+            if tThisFlipGlobal > trial_eyetracker.tStartRefresh + 5-frameTolerance:
                 # keep track of stop time/frame for later
-                etRecord.tStop = t  # not accounting for scr refresh
-                etRecord.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(etRecord, 'tStopRefresh')  # time at next scr refresh
-                etRecord.status = FINISHED
+                trial_eyetracker.tStop = t  # not accounting for scr refresh
+                trial_eyetracker.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(trial_eyetracker, 'tStopRefresh')  # time at next scr refresh
+                trial_eyetracker.status = FINISHED
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -582,11 +666,11 @@ for thisStimulus_loop in stimulus_loop:
     stimulus_loop.addData('Bottom.started', Bottom.tStartRefresh)
     stimulus_loop.addData('Bottom.stopped', Bottom.tStopRefresh)
     # make sure the eyetracker recording stops
-    if etRecord.status != FINISHED:
-        etRecord.status = FINISHED
+    if trial_eyetracker.status != FINISHED:
+        trial_eyetracker.status = FINISHED
     thisExp.nextEntry()
     
-# completed 2.0 repeats of 'stimulus_loop'
+# completed 5.0 repeats of 'stimulus_loop'
 
 
 # Flip one final time so any remaining win.callOnFlip() 
