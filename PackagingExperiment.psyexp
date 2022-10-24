@@ -25,7 +25,7 @@
     <Param name="Show mouse" updates="None" val="False" valType="bool"/>
     <Param name="Units" updates="None" val="norm" valType="str"/>
     <Param name="Use version" updates="None" val="" valType="str"/>
-    <Param name="Window size (pixels)" updates="None" val="[1920, 1080]" valType="list"/>
+    <Param name="Window size (pixels)" updates="None" val="[1512, 982]" valType="list"/>
     <Param name="blendMode" updates="None" val="avg" valType="str"/>
     <Param name="color" updates="None" val="$[0,0,0]" valType="color"/>
     <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
@@ -126,7 +126,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="0.07" valType="num"/>
         <Param name="name" updates="None" val="calib_instr_text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -138,7 +138,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="We must first calibrate the eye tracker.&amp;#10;&amp;#10;Keep your eye on the calibration dot but don't anticipate it's movement.&amp;#10;&amp;#10;Press space to continue." valType="str"/>
+        <Param name="text" updates="constant" val="Before we begin the experiment, we must FIRST calibrate the eye tracker.&amp;#10;&amp;#10;Keep your eye on the calibration dot, but don't anticipate it's movement.&amp;#10;&amp;#10;When you are ready to calibrate, press the SPACEBAR.&amp;#10;&amp;#10;*NOTE: It may take up to 7 seconds to move onto the next screen." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
@@ -303,7 +303,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="0.07" valType="num"/>
         <Param name="name" updates="None" val="text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -315,7 +315,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="&lt;insert instructions here&gt;&amp;#10;&amp;#10;Press spacebar to continue..." valType="str"/>
+        <Param name="text" updates="constant" val="Now we are ready to begin the actual experiment.&amp;#10;&amp;#10;1. On the following screens, there will be 3 different items displayed.&amp;#10;2. Focus your gaze on the items that stand out the most to you. There is no right or wrong thing you should be looking at on each slide! Just simply examine whatever grabs your attention the most.&amp;#10;3. Once the experiment has ended, follow the on-screen instructions.&amp;#10;&amp;#10;Press the SPACEBAR to continue." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
@@ -327,6 +327,51 @@
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
         <Param name="name" updates="None" val="key_resp" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="closing">
+      <TextComponent name="closing_text">
+        <Param name="color" updates="constant" val="white" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="None" valType="str"/>
+        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.07" valType="num"/>
+        <Param name="name" updates="None" val="closing_text" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="Thank you for your participation in the Food Packaging Eyetracking Experiment!&amp;#10;&amp;#10;The experiment is now over. Please alert one of the researchers, and be sure to fill out a POST-EXPERIMENT SURVEY at this time. &amp;#10;&amp;#10;We thank you again for your humble participation to help further our eyetracking research!&amp;#10;&amp;#10;Press the SPACEBAR confirming you have read all of this in order to end the experiment." valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
+      </TextComponent>
+      <KeyboardComponent name="closing_key_resp">
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="list"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="closing_key_resp" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -353,7 +398,6 @@
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <EyetrackerCalibrationRoutine name="calibration"/>
-    <EyetrackerValidationRoutine name="validation"/>
     <Routine name="calib_cont"/>
     <LoopTerminator name="calib_loop"/>
     <Routine name="trial_instr"/>
@@ -364,11 +408,12 @@
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
-      <Param name="nReps" updates="None" val="5" valType="num"/>
+      <Param name="nReps" updates="None" val="10" valType="num"/>
       <Param name="name" updates="None" val="stimulus_loop" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <Routine name="stimulus"/>
     <LoopTerminator name="stimulus_loop"/>
+    <Routine name="closing"/>
   </Flow>
 </PsychoPy2experiment>

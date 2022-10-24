@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on October 21, 2022, at 21:39
+    on October 23, 2022, at 17:46
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -52,7 +52,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='\\\\home.clemson.edu\\psmathe\\Desktop\\CPSC 4120\\Experiment\\eyetracking-experiment\\PackagingExperiment_lastrun.py',
+    originPath='\\\\home.clemson.edu\\nkilcoy\\Desktop\\CPSC 4120\\Github Version - 10.23.22 ORIGINAL\\eyetracking-experiment-main\\eyetracking-experiment-main\\PackagingExperiment_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -101,9 +101,9 @@ defaultKeyboard = keyboard.Keyboard()
 # Initialize components for Routine "calib_instr"
 calib_instrClock = core.Clock()
 calib_instr_text = visual.TextStim(win=win, name='calib_instr_text',
-    text="We must first calibrate the eye tracker.\n\nKeep your eye on the calibration dot but don't anticipate it's movement.\n\nPress space to continue.",
+    text="Before we begin the experiment, we must FIRST calibrate the eye tracker.\n\nKeep your eye on the calibration dot, but don't anticipate it's movement.\n\nWhen you are ready to calibrate, press the SPACEBAR.\n\n*NOTE: It may take up to 7 seconds to move onto the next screen.",
     font='Open Sans',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.07, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -126,9 +126,9 @@ calib_resp = keyboard.Keyboard()
 # Initialize components for Routine "trial_instr"
 trial_instrClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
-    text='<insert instructions here>\n\nPress spacebar to continue...',
+    text='Now we are ready to begin the actual experiment.\n\n1. On the following screens, there will be 3 different items displayed.\n2. Focus your gaze on the items that stand out the most to you. There is no right or wrong thing you should be looking at on each slide! Just simply examine whatever grabs your attention the most.\n3. Once the experiment has ended, follow the on-screen instructions.\n\nPress the SPACEBAR to continue.',
     font='Open Sans',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.07, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -169,6 +169,17 @@ trial_eyetracker = hardware.eyetracker.EyetrackerControl(
     server=ioServer,
     tracker=eyetracker
 )
+
+# Initialize components for Routine "closing"
+closingClock = core.Clock()
+closing_text = visual.TextStim(win=win, name='closing_text',
+    text='Thank you for your participation in the Food Packaging Eyetracking Experiment!\n\nThe experiment is now over. Please alert one of the researchers, and be sure to fill out a POST-EXPERIMENT SURVEY at this time. \n\nWe thank you again for your humble participation to help further our eyetracking research!\n\nPress the SPACEBAR confirming you have read all of this in order to end the experiment.',
+    font='Open Sans',
+    pos=(0, 0), height=0.07, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+closing_key_resp = keyboard.Keyboard()
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
@@ -510,7 +521,7 @@ thisExp.nextEntry()
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-stimulus_loop = data.TrialHandler(nReps=5.0, method='random', 
+stimulus_loop = data.TrialHandler(nReps=10.0, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=[None],
     seed=None, name='stimulus_loop')
@@ -670,8 +681,104 @@ for thisStimulus_loop in stimulus_loop:
         trial_eyetracker.status = FINISHED
     thisExp.nextEntry()
     
-# completed 5.0 repeats of 'stimulus_loop'
+# completed 10.0 repeats of 'stimulus_loop'
 
+
+# ------Prepare to start Routine "closing"-------
+continueRoutine = True
+# update component parameters for each repeat
+closing_key_resp.keys = []
+closing_key_resp.rt = []
+_closing_key_resp_allKeys = []
+# keep track of which components have finished
+closingComponents = [closing_text, closing_key_resp]
+for thisComponent in closingComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+closingClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "closing"-------
+while continueRoutine:
+    # get current time
+    t = closingClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=closingClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *closing_text* updates
+    if closing_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        closing_text.frameNStart = frameN  # exact frame index
+        closing_text.tStart = t  # local t and not account for scr refresh
+        closing_text.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(closing_text, 'tStartRefresh')  # time at next scr refresh
+        closing_text.setAutoDraw(True)
+    
+    # *closing_key_resp* updates
+    waitOnFlip = False
+    if closing_key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        closing_key_resp.frameNStart = frameN  # exact frame index
+        closing_key_resp.tStart = t  # local t and not account for scr refresh
+        closing_key_resp.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(closing_key_resp, 'tStartRefresh')  # time at next scr refresh
+        closing_key_resp.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(closing_key_resp.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(closing_key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if closing_key_resp.status == STARTED and not waitOnFlip:
+        theseKeys = closing_key_resp.getKeys(keyList=['space'], waitRelease=False)
+        _closing_key_resp_allKeys.extend(theseKeys)
+        if len(_closing_key_resp_allKeys):
+            closing_key_resp.keys = _closing_key_resp_allKeys[-1].name  # just the last key pressed
+            closing_key_resp.rt = _closing_key_resp_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in closingComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "closing"-------
+for thisComponent in closingComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('closing_text.started', closing_text.tStartRefresh)
+thisExp.addData('closing_text.stopped', closing_text.tStopRefresh)
+# check responses
+if closing_key_resp.keys in ['', [], None]:  # No response was made
+    closing_key_resp.keys = None
+thisExp.addData('closing_key_resp.keys',closing_key_resp.keys)
+if closing_key_resp.keys != None:  # we had a response
+    thisExp.addData('closing_key_resp.rt', closing_key_resp.rt)
+thisExp.addData('closing_key_resp.started', closing_key_resp.tStartRefresh)
+thisExp.addData('closing_key_resp.stopped', closing_key_resp.tStopRefresh)
+thisExp.nextEntry()
+# the Routine "closing" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
 
 # Flip one final time so any remaining win.callOnFlip() 
 # and win.timeOnFlip() tasks get executed before quitting
