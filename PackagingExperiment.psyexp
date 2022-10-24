@@ -165,17 +165,17 @@
       <CodeComponent name="imageSelector">
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="import random&amp;#10;Healthy_food = ['stimuli/banana_chips.png', 'stimuli/fruit_cup.png', 'stimuli/clementines.png', 'stimuli/health_bar.png']&amp;#10;Unhealthy_food = ['stimuli/nacho_chips.png','stimuli/lays_chips.png', 'stimuli/chocolate_bar.png', 'stimuli/chocolate_cookies.png']&amp;#10;Random_image = ['stimuli/distractions/watch.png', 'stimuli/distractions/cart.png', 'stimuli/distractions/scissors.png', 'stimuli/distractions/basketball.png']&amp;#10;random.seed()" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="import random&amp;#10;Healthy_food = ['stimuli/banana_chips.png', 'stimuli/fruit_cup.png', 'stimuli/clementines.png', 'stimuli/health_bar.png']&amp;#10;Unhealthy_food = ['stimuli/nacho_chips.png','stimuli/lays_chips.png', 'stimuli/chocolate_bar.png', 'stimuli/chocolate_cookies.png']&amp;#10;Random_image = ['stimuli/distractions/watch.png', 'stimuli/distractions/cart.png', 'stimuli/distractions/scissors.png', 'stimuli/distractions/basketball.png']&amp;#10;random.seed()&amp;#10;&amp;#10;ioServer.sendMessageEvent(text='%s' % win.units, category='units')" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="Healthy_index = random.randrange(4)&amp;#10;Unhealthy_index = random.randrange(4)&amp;#10;Random_index = random.randrange(4)&amp;#10;&amp;#10;images = [Healthy_food[Healthy_index], Unhealthy_food[Healthy_index], Random_image[Random_index]]&amp;#10;random.shuffle(images)&amp;#10;&amp;#10;&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="Healthy_index = random.randrange(4)&amp;#10;Unhealthy_index = random.randrange(4)&amp;#10;Random_index = random.randrange(4)&amp;#10;&amp;#10;images = [Healthy_food[Healthy_index], Unhealthy_food[Healthy_index], Random_image[Random_index]]&amp;#10;random.shuffle(images)&amp;#10;&amp;#10;ioServer.sendMessageEvent(text='%s' % ('beginStimuliFrame'), category='trial') &amp;#10;" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="ioServer.sendMessageEvent(text='%s' % ('endStimuliFrame'), category='trial') " valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="imageSelector" valType="code"/>
       </CodeComponent>
