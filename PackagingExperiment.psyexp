@@ -168,7 +168,7 @@
         <Param name="Begin Experiment" updates="constant" val="import random&amp;#10;Healthy_food = ['stimuli/banana_chips.png', 'stimuli/fruit_cup.png', 'stimuli/clementines.png', 'stimuli/health_bar.png']&amp;#10;Unhealthy_food = ['stimuli/nacho_chips.png','stimuli/lays_chips.png', 'stimuli/chocolate_bar.png', 'stimuli/chocolate_cookies.png']&amp;#10;Random_image = ['stimuli/distractions/watch.png', 'stimuli/distractions/cart.png', 'stimuli/distractions/scissors.png', 'stimuli/distractions/basketball.png']&amp;#10;random.seed()&amp;#10;&amp;#10;ioServer.sendMessageEvent(text='%s' % win.units, category='units')" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="Healthy_index = random.randrange(4)&amp;#10;Unhealthy_index = random.randrange(4)&amp;#10;Random_index = random.randrange(4)&amp;#10;&amp;#10;images = [Healthy_food[Healthy_index], Unhealthy_food[Healthy_index], Random_image[Random_index]]&amp;#10;random.shuffle(images)&amp;#10;&amp;#10;ioServer.sendMessageEvent(text='%s' % ('beginStimuliFrame'), category='trial') &amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="Healthy_index = random.randrange(4)&amp;#10;Unhealthy_index = random.randrange(4)&amp;#10;Random_index = random.randrange(4)&amp;#10;&amp;#10;images = [Healthy_food[Healthy_index], Unhealthy_food[Healthy_index], Random_image[Random_index]]&amp;#10;random.shuffle(images)&amp;#10;&amp;#10;ioServer.sendMessageEvent(text='%s' % ('beginStimuliFrame'), category='trial') &amp;#10;ioServer.sendMessageEvent(text='top: %s, bottomLeft: %s, bottomRight: %s' % (images[2], images[0], images[1]), category='trial') &amp;#10;" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -179,7 +179,7 @@
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="imageSelector" valType="code"/>
       </CodeComponent>
-      <ImageComponent name="TopLeft">
+      <ImageComponent name="BottomLeft">
         <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
@@ -190,7 +190,7 @@
         <Param name="image" updates="set every repeat" val="$images[0]" valType="file"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
-        <Param name="name" updates="None" val="TopLeft" valType="code"/>
+        <Param name="name" updates="None" val="BottomLeft" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(-.33, -.5)" valType="list"/>
@@ -205,7 +205,7 @@
         <Param name="texture resolution" updates="constant" val="128" valType="num"/>
         <Param name="units" updates="None" val="norm" valType="str"/>
       </ImageComponent>
-      <ImageComponent name="TopRight">
+      <ImageComponent name="BottomRight">
         <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
@@ -216,7 +216,7 @@
         <Param name="image" updates="set every repeat" val="$images[1]" valType="file"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
-        <Param name="name" updates="None" val="TopRight" valType="code"/>
+        <Param name="name" updates="None" val="BottomRight" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(.33, -.5)" valType="list"/>
@@ -231,7 +231,7 @@
         <Param name="texture resolution" updates="constant" val="128" valType="num"/>
         <Param name="units" updates="None" val="norm" valType="str"/>
       </ImageComponent>
-      <ImageComponent name="Bottom">
+      <ImageComponent name="Top">
         <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
@@ -242,7 +242,7 @@
         <Param name="image" updates="set every repeat" val="$images[2]" valType="file"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
-        <Param name="name" updates="None" val="Bottom" valType="code"/>
+        <Param name="name" updates="None" val="Top" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, .5)" valType="list"/>

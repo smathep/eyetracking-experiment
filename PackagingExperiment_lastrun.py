@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on October 23, 2022, at 17:46
+    on November 02, 2022, at 11:28
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -52,7 +52,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='\\\\home.clemson.edu\\nkilcoy\\Desktop\\CPSC 4120\\Github Version - 10.23.22 ORIGINAL\\eyetracking-experiment-main\\eyetracking-experiment-main\\PackagingExperiment_lastrun.py',
+    originPath='\\\\home.clemson.edu\\psmathe\\Desktop\\CPSC 4120\\Experiment\\eyetracking-experiment\\PackagingExperiment_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -66,7 +66,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[1920, 1080], fullscr=True, screen=0, 
+    size=[1512, 982], fullscr=True, screen=0, 
     winType='pyglet', allowGUI=False, allowStencil=False,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -141,6 +141,8 @@ Healthy_food = ['stimuli/banana_chips.png', 'stimuli/fruit_cup.png', 'stimuli/cl
 Unhealthy_food = ['stimuli/nacho_chips.png','stimuli/lays_chips.png', 'stimuli/chocolate_bar.png', 'stimuli/chocolate_cookies.png']
 Random_image = ['stimuli/distractions/watch.png', 'stimuli/distractions/cart.png', 'stimuli/distractions/scissors.png', 'stimuli/distractions/basketball.png']
 random.seed()
+
+ioServer.sendMessageEvent(text='%s' % win.units, category='units')
 TopLeft = visual.ImageStim(
     win=win,
     name='TopLeft', units='norm', 
@@ -550,7 +552,7 @@ for thisStimulus_loop in stimulus_loop:
     images = [Healthy_food[Healthy_index], Unhealthy_food[Healthy_index], Random_image[Random_index]]
     random.shuffle(images)
     
-    
+    ioServer.sendMessageEvent(text='%s' % ('beginStimuliFrame'), category='trial') 
     
     TopLeft.setSize((0.28125, 0.5))
     TopLeft.setImage(images[0])
@@ -670,6 +672,7 @@ for thisStimulus_loop in stimulus_loop:
     for thisComponent in stimulusComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
+    ioServer.sendMessageEvent(text='%s' % ('endStimuliFrame'), category='trial') 
     stimulus_loop.addData('TopLeft.started', TopLeft.tStartRefresh)
     stimulus_loop.addData('TopLeft.stopped', TopLeft.tStopRefresh)
     stimulus_loop.addData('TopRight.started', TopRight.tStartRefresh)
