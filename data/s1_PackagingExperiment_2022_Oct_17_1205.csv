@@ -1,3 +1,0 @@
-﻿stim,calib_loop.thisRepN,calib_loop.thisTrialN,calib_loop.thisN,calib_loop.thisIndex,stimulus_loop.thisRepN,stimulus_loop.thisTrialN,stimulus_loop.thisN,stimulus_loop.thisIndex,calib_instr_text.started,calib_instr_text.stopped,TopLeft.started,TopLeft.stopped,TopRight.started,TopRight.stopped,Bottom.started,Bottom.stopped,participant,task,date,expName,psychopyVersion,frameRate,
-./stimuli/banana_chips.png,,,,,0,0,0,0,19.31704489999902,None,21.201380400001653,None,21.201380400001653,None,21.201380400001653,None,s1,calib,2022_Oct_17_1205,PackagingExperiment,2021.2.3,60.000564004794086,
-./stimuli/nacho_chips.png,,,,,0,1,1,2,,,30.68396280000161,None,30.68396280000161,None,30.68396280000161,None,s1,calib,2022_Oct_17_1205,PackagingExperiment,2021.2.3,60.000564004794086,
