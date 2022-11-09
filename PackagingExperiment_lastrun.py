@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on November 02, 2022, at 11:28
+    on November 09, 2022, at 12:10
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -66,7 +66,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[1512, 982], fullscr=True, screen=0, 
+    size=[1920, 1080], fullscr=True, screen=0, 
     winType='pyglet', allowGUI=False, allowStencil=False,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -136,41 +136,25 @@ key_resp = keyboard.Keyboard()
 
 # Initialize components for Routine "stimulus"
 stimulusClock = core.Clock()
-import random
-Healthy_food = ['stimuli/banana_chips.png', 'stimuli/fruit_cup.png', 'stimuli/clementines.png', 'stimuli/health_bar.png']
-Unhealthy_food = ['stimuli/nacho_chips.png','stimuli/lays_chips.png', 'stimuli/chocolate_bar.png', 'stimuli/chocolate_cookies.png']
-Random_image = ['stimuli/distractions/watch.png', 'stimuli/distractions/cart.png', 'stimuli/distractions/scissors.png', 'stimuli/distractions/basketball.png']
-random.seed()
+#import random
+#Healthy_food = ['stimuli/banana_chips.png', 'stimuli/fruit_cup.png', 'stimuli/clementines.png', 'stimuli/health_bar.png']
+#Unhealthy_food = ['stimuli/nacho_chips.png','stimuli/lays_chips.png', 'stimuli/chocolate_bar.png', 'stimuli/chocolate_cookies.png']
+#Random_image = ['stimuli/distractions/watch.png', 'stimuli/distractions/cart.png', 'stimuli/distractions/scissors.png', 'stimuli/distractions/basketball.png']
+#random.seed()
 
 ioServer.sendMessageEvent(text='%s' % win.units, category='units')
-TopLeft = visual.ImageStim(
-    win=win,
-    name='TopLeft', units='norm', 
-    image='sin', mask=None,
-    ori=0.0, pos=(-.33, -.5), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
-    flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-1.0)
-TopRight = visual.ImageStim(
-    win=win,
-    name='TopRight', units='norm', 
-    image='sin', mask=None,
-    ori=0.0, pos=(.33, -.5), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
-    flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-2.0)
-Bottom = visual.ImageStim(
-    win=win,
-    name='Bottom', units='norm', 
-    image='sin', mask=None,
-    ori=0.0, pos=(0, .5), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
-    flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-3.0)
 trial_eyetracker = hardware.eyetracker.EyetrackerControl(
     server=ioServer,
     tracker=eyetracker
 )
+layout = visual.ImageStim(
+    win=win,
+    name='layout', units='pix', 
+    image='sin', mask=None,
+    ori=0.0, pos=(0, 0), size=(1920, 1080),
+    color=[1,1,1], colorSpace='rgb', opacity=None,
+    flipHoriz=False, flipVert=False,
+    texRes=128.0, interpolate=True, depth=-2.0)
 
 # Initialize components for Routine "closing"
 closingClock = core.Clock()
@@ -523,9 +507,9 @@ thisExp.nextEntry()
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-stimulus_loop = data.TrialHandler(nReps=10.0, method='random', 
+stimulus_loop = data.TrialHandler(nReps=1.0, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=[None],
+    trialList=data.importConditions('stim.csv'),
     seed=None, name='stimulus_loop')
 thisExp.addLoop(stimulus_loop)  # add the loop to the experiment
 thisStimulus_loop = stimulus_loop.trialList[0]  # so we can initialise stimuli with some values
@@ -545,23 +529,19 @@ for thisStimulus_loop in stimulus_loop:
     continueRoutine = True
     routineTimer.add(5.000000)
     # update component parameters for each repeat
-    Healthy_index = random.randrange(4)
-    Unhealthy_index = random.randrange(4)
-    Random_index = random.randrange(4)
-    
-    images = [Healthy_food[Healthy_index], Unhealthy_food[Healthy_index], Random_image[Random_index]]
-    random.shuffle(images)
-    
+    #Healthy_index = random.randrange(4)
+    #Unhealthy_index = random.randrange(4)
+    #Random_index = random.randrange(4)
+    #
+    #images = [Healthy_food[Healthy_index], Unhealthy_food[Healthy_index], Random_image[Random_index]]
+    #random.shuffle(images)
+    #
     ioServer.sendMessageEvent(text='%s' % ('beginStimuliFrame'), category='trial') 
-    
-    TopLeft.setSize((0.28125, 0.5))
-    TopLeft.setImage(images[0])
-    TopRight.setSize((0.28125, 0.5))
-    TopRight.setImage(images[1])
-    Bottom.setSize((0.28125, 0.5))
-    Bottom.setImage(images[2])
+    #ioServer.sendMessageEvent(text='top: %s, bottomLeft: %s, bottomRight: %s' % (images[2], images[0], images[1]), category='trial') 
+    #
+    layout.setImage(stim)
     # keep track of which components have finished
-    stimulusComponents = [TopLeft, TopRight, Bottom, trial_eyetracker]
+    stimulusComponents = [trial_eyetracker, layout]
     for thisComponent in stimulusComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -583,57 +563,6 @@ for thisStimulus_loop in stimulus_loop:
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
-        
-        # *TopLeft* updates
-        if TopLeft.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            TopLeft.frameNStart = frameN  # exact frame index
-            TopLeft.tStart = t  # local t and not account for scr refresh
-            TopLeft.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(TopLeft, 'tStartRefresh')  # time at next scr refresh
-            TopLeft.setAutoDraw(True)
-        if TopLeft.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > TopLeft.tStartRefresh + 5-frameTolerance:
-                # keep track of stop time/frame for later
-                TopLeft.tStop = t  # not accounting for scr refresh
-                TopLeft.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(TopLeft, 'tStopRefresh')  # time at next scr refresh
-                TopLeft.setAutoDraw(False)
-        
-        # *TopRight* updates
-        if TopRight.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            TopRight.frameNStart = frameN  # exact frame index
-            TopRight.tStart = t  # local t and not account for scr refresh
-            TopRight.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(TopRight, 'tStartRefresh')  # time at next scr refresh
-            TopRight.setAutoDraw(True)
-        if TopRight.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > TopRight.tStartRefresh + 5-frameTolerance:
-                # keep track of stop time/frame for later
-                TopRight.tStop = t  # not accounting for scr refresh
-                TopRight.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(TopRight, 'tStopRefresh')  # time at next scr refresh
-                TopRight.setAutoDraw(False)
-        
-        # *Bottom* updates
-        if Bottom.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            Bottom.frameNStart = frameN  # exact frame index
-            Bottom.tStart = t  # local t and not account for scr refresh
-            Bottom.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(Bottom, 'tStartRefresh')  # time at next scr refresh
-            Bottom.setAutoDraw(True)
-        if Bottom.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > Bottom.tStartRefresh + 5-frameTolerance:
-                # keep track of stop time/frame for later
-                Bottom.tStop = t  # not accounting for scr refresh
-                Bottom.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(Bottom, 'tStopRefresh')  # time at next scr refresh
-                Bottom.setAutoDraw(False)
         # *trial_eyetracker* updates
         if trial_eyetracker.status == NOT_STARTED and t >= 0.0-frameTolerance:
             # keep track of start time/frame for later
@@ -650,6 +579,23 @@ for thisStimulus_loop in stimulus_loop:
                 trial_eyetracker.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(trial_eyetracker, 'tStopRefresh')  # time at next scr refresh
                 trial_eyetracker.status = FINISHED
+        
+        # *layout* updates
+        if layout.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            layout.frameNStart = frameN  # exact frame index
+            layout.tStart = t  # local t and not account for scr refresh
+            layout.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(layout, 'tStartRefresh')  # time at next scr refresh
+            layout.setAutoDraw(True)
+        if layout.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > layout.tStartRefresh + 5-frameTolerance:
+                # keep track of stop time/frame for later
+                layout.tStop = t  # not accounting for scr refresh
+                layout.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(layout, 'tStopRefresh')  # time at next scr refresh
+                layout.setAutoDraw(False)
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -673,18 +619,14 @@ for thisStimulus_loop in stimulus_loop:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     ioServer.sendMessageEvent(text='%s' % ('endStimuliFrame'), category='trial') 
-    stimulus_loop.addData('TopLeft.started', TopLeft.tStartRefresh)
-    stimulus_loop.addData('TopLeft.stopped', TopLeft.tStopRefresh)
-    stimulus_loop.addData('TopRight.started', TopRight.tStartRefresh)
-    stimulus_loop.addData('TopRight.stopped', TopRight.tStopRefresh)
-    stimulus_loop.addData('Bottom.started', Bottom.tStartRefresh)
-    stimulus_loop.addData('Bottom.stopped', Bottom.tStopRefresh)
     # make sure the eyetracker recording stops
     if trial_eyetracker.status != FINISHED:
         trial_eyetracker.status = FINISHED
+    stimulus_loop.addData('layout.started', layout.tStartRefresh)
+    stimulus_loop.addData('layout.stopped', layout.tStopRefresh)
     thisExp.nextEntry()
     
-# completed 10.0 repeats of 'stimulus_loop'
+# completed 1.0 repeats of 'stimulus_loop'
 
 
 # ------Prepare to start Routine "closing"-------
