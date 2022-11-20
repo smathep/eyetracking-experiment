@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on November 09, 2022, at 12:10
+    on November 20, 2022, at 15:44
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -527,7 +527,7 @@ for thisStimulus_loop in stimulus_loop:
     
     # ------Prepare to start Routine "stimulus"-------
     continueRoutine = True
-    routineTimer.add(5.000000)
+    routineTimer.add(5.250000)
     # update component parameters for each repeat
     #Healthy_index = random.randrange(4)
     #Unhealthy_index = random.randrange(4)
@@ -573,7 +573,7 @@ for thisStimulus_loop in stimulus_loop:
             trial_eyetracker.status = STARTED
         if trial_eyetracker.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > trial_eyetracker.tStartRefresh + 5-frameTolerance:
+            if tThisFlipGlobal > trial_eyetracker.tStartRefresh + 5.25-frameTolerance:
                 # keep track of stop time/frame for later
                 trial_eyetracker.tStop = t  # not accounting for scr refresh
                 trial_eyetracker.frameNStop = frameN  # exact frame index
