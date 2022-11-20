@@ -188,7 +188,7 @@
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="5" valType="code"/>
+        <Param name="stopVal" updates="constant" val="5.25" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="False" valType="bool"/>
       </EyetrackerRecordComponent>
       <ImageComponent name="layout">
