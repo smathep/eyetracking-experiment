@@ -1,0 +1,86 @@
+2.4012 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+12.0127 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000020B910AF5F8>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x0000020B917F59E8>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+12.0130 	EXP 	window1: mouseVisible = True
+12.0130 	EXP 	window1: recordFrameIntervals = False
+12.1791 	EXP 	window1: recordFrameIntervals = True
+12.3627 	EXP 	window1: recordFrameIntervals = False
+15.6103 	EXP 	Created calib_instr_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.07, italic=False, languageStyle='LTR', name='calib_instr_text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='norm', win=Window(...), wrapWidth=1)
+15.6122 	EXP 	Created calib_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='calib_text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='norm', win=Window(...), wrapWidth=1)
+15.6437 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.07, italic=False, languageStyle='LTR', name='text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='norm', win=Window(...), wrapWidth=1)
+15.6520 	EXP 	Created layout = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='layout', opacity=1, ori=0.0, pos=array([0., 0.]), size=array([1920., 1080.]), texRes=128.0, units='pix', win=Window(...))
+15.6799 	EXP 	Created closing_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.07, italic=False, languageStyle='LTR', name='closing_text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='norm', win=Window(...), wrapWidth=1)
+15.6958 	EXP 	calib_instr_text: autoDraw = True
+37.1309 	EXP 	Created sequence: sequential, trialTypes=1, nReps=10, seed=None
+37.1311 	EXP 	New trial (rep=0, index=0): None
+37.1375 	EXP 	Created calibrationTarget = TargetStim(__class__=<class 'psychopy.visual.target.TargetStim'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=0, fillColor=array([0, 0, 0]), fillColorSpace='rgb', fillRGB=array([0, 0, 0]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=2.0, name='calibrationTarget', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.02, 0.02]), units='norm', vertices=ndarray(...), win=Window(...), windingRule=None)
+37.1424 	EXP 	Created calibrationTargetInner = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=0, fillColor=array([-1.        ,  0.00392157, -1.        ]), fillColorSpace='rgb', fillRGB=array([-1.        ,  0.00392157, -1.        ]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=2.0, name='calibrationTargetInner', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.007, 0.007]), units='norm', vertices=ndarray(...), win=Window(...), windingRule=None)
+59.3785 	DATA 	Keypress: space
+59.3896 	EXP 	calib_instr_text: autoDraw = False
+59.3896 	EXP 	calibrationTarget: vertices = 'circle'
+59.3896 	EXP 	calibrationTargetInner: vertices = 'circle'
+59.4126 	EXP 	calib_text: text = 'Average error is: 43.410000\n\nValid points: 5\n\nRecalibrate (y/n)?'
+59.4126 	EXP 	calib_text: autoDraw = True
+64.4473 	EXP 	calib_text: autoDraw = False
+64.4473 	EXP 	text: autoDraw = True
+93.4821 	EXP 	Imported stim.csv as conditions, 12 conditions, 1 params
+93.4825 	EXP 	Created sequence: random, trialTypes=12, nReps=1, seed=None
+93.4828 	EXP 	New trial (rep=0, index=0): OrderedDict([('stim', './stimuli/layout10.jpg')])
+93.4904 	WARNING 	Requested image './stimuli/layout10.jpg' not found but similar filename './stimuli/layout10.png' exists. This will be used instead but changing the filename is advised.
+93.7352 	EXP 	text: autoDraw = False
+93.7352 	EXP 	layout: image = './stimuli/layout10.jpg'
+93.7352 	EXP 	layout: autoDraw = True
+98.4867 	EXP 	New trial (rep=0, index=1): OrderedDict([('stim', './stimuli/layout8.jpg')])
+98.4946 	WARNING 	Requested image './stimuli/layout8.jpg' not found but similar filename './stimuli/layout8.png' exists. This will be used instead but changing the filename is advised.
+98.6536 	EXP 	layout: autoDraw = False
+98.6536 	EXP 	layout: image = './stimuli/layout8.jpg'
+98.6536 	EXP 	layout: autoDraw = True
+104.4838 	EXP 	New trial (rep=0, index=2): OrderedDict([('stim', './stimuli/layout2.png')])
+104.6458 	EXP 	layout: autoDraw = False
+104.6458 	EXP 	layout: image = './stimuli/layout2.png'
+104.6458 	EXP 	layout: autoDraw = True
+108.4887 	EXP 	New trial (rep=0, index=3): OrderedDict([('stim', './stimuli/layout6.jpg')])
+108.4969 	WARNING 	Requested image './stimuli/layout6.jpg' not found but similar filename './stimuli/layout6.png' exists. This will be used instead but changing the filename is advised.
+108.6605 	EXP 	layout: autoDraw = False
+108.6605 	EXP 	layout: image = './stimuli/layout6.jpg'
+108.6605 	EXP 	layout: autoDraw = True
+113.4834 	EXP 	New trial (rep=0, index=4): OrderedDict([('stim', './stimuli/layout5.jpg')])
+113.4927 	WARNING 	Requested image './stimuli/layout5.jpg' not found but similar filename './stimuli/layout5.png' exists. This will be used instead but changing the filename is advised.
+113.6709 	EXP 	layout: autoDraw = False
+113.6709 	EXP 	layout: image = './stimuli/layout5.jpg'
+113.6709 	EXP 	layout: autoDraw = True
+118.4712 	EXP 	New trial (rep=0, index=5): OrderedDict([('stim', './stimuli/layout7.jpg')])
+118.4796 	WARNING 	Requested image './stimuli/layout7.jpg' not found but similar filename './stimuli/layout7.png' exists. This will be used instead but changing the filename is advised.
+118.6362 	EXP 	layout: autoDraw = False
+118.6362 	EXP 	layout: image = './stimuli/layout7.jpg'
+118.6362 	EXP 	layout: autoDraw = True
+123.4695 	EXP 	New trial (rep=0, index=6): OrderedDict([('stim', './stimuli/layout9.jpg')])
+123.4772 	WARNING 	Requested image './stimuli/layout9.jpg' not found but similar filename './stimuli/layout9.png' exists. This will be used instead but changing the filename is advised.
+123.6382 	EXP 	layout: autoDraw = False
+123.6382 	EXP 	layout: image = './stimuli/layout9.jpg'
+123.6382 	EXP 	layout: autoDraw = True
+128.4675 	EXP 	New trial (rep=0, index=7): OrderedDict([('stim', './stimuli/layout11.jpg')])
+128.4751 	WARNING 	Requested image './stimuli/layout11.jpg' not found but similar filename './stimuli/layout11.png' exists. This will be used instead but changing the filename is advised.
+128.6314 	EXP 	layout: autoDraw = False
+128.6314 	EXP 	layout: image = './stimuli/layout11.jpg'
+128.6314 	EXP 	layout: autoDraw = True
+133.4718 	EXP 	New trial (rep=0, index=8): OrderedDict([('stim', './stimuli/layout1.png')])
+133.6319 	EXP 	layout: autoDraw = False
+133.6319 	EXP 	layout: image = './stimuli/layout1.png'
+133.6319 	EXP 	layout: autoDraw = True
+138.4710 	EXP 	New trial (rep=0, index=9): OrderedDict([('stim', './stimuli/layout12.jpg')])
+138.4789 	WARNING 	Requested image './stimuli/layout12.jpg' not found but similar filename './stimuli/layout12.png' exists. This will be used instead but changing the filename is advised.
+138.6166 	EXP 	layout: autoDraw = False
+138.6166 	EXP 	layout: image = './stimuli/layout12.jpg'
+138.6166 	EXP 	layout: autoDraw = True
+144.4682 	EXP 	New trial (rep=0, index=10): OrderedDict([('stim', './stimuli/layout3.png')])
+144.6198 	EXP 	layout: autoDraw = False
+144.6198 	EXP 	layout: image = './stimuli/layout3.png'
+144.6198 	EXP 	layout: autoDraw = True
+148.4719 	EXP 	New trial (rep=0, index=11): OrderedDict([('stim', './stimuli/layout4.png')])
+148.6088 	EXP 	layout: autoDraw = False
+148.6088 	EXP 	layout: image = './stimuli/layout4.png'
+148.6088 	EXP 	layout: autoDraw = True
+153.4833 	EXP 	layout: autoDraw = False
+153.4833 	EXP 	closing_text: autoDraw = True
+170.7837 	EXP 	closing_text: autoDraw = False
+170.8692 	EXP 	window1: mouseVisible = True
