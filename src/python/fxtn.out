@@ -1,0 +1,314 @@
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ver_mjr = R.Version()$major
+> ver_mnr = unlist(strsplit(R.Version()$minor,"\\."))[1]
+> lpath = sprintf("~/AppData/Local/R/win-library/%s.%s",ver_mjr,ver_mnr)
+> rversion = R.Version()
+> platform = Sys.info()['sysname']
+> print(sprintf("R version %s.%s running on %s",ver_mjr,ver_mnr,platform))
+[1] "R version 4.2 running on Darwin"
+> if(platform == "Windows") {
++    if(!file.exists(lpath)) {
++      dir.create(lpath,recursive=TRUE)
++    }
++    libpath <- c(lpath)
++   .libPaths(libpath)
++ } else {
++   libpath <- .libPaths()
++ }
+> 
+> source('custom.R')
+> 
+> # load plyr before dplyr
+> load.libraries(c('rio','psych','ggplot2','afex','plyr','dplyr','emmeans','knitr','psych','xfun','digest'),libpath)
+
+The downloaded binary packages are in
+	/var/folders/_s/n1lkbf853jqfhd_1l6pyl__80000gn/T//RtmpqzpFBN/downloaded_packages
+[1] "Loaded packages: "
+ [1] "digest"    "xfun"      "knitr"     "emmeans"   "dplyr"     "plyr"     
+ [7] "afex"      "lme4"      "Matrix"    "ggplot2"   "psych"     "rio"      
+[13] "stats"     "graphics"  "grDevices" "utils"     "datasets"  "methods"  
+[19] "base"     
+> #library('rio')
+> #library('psych')
+> #library('ggplot2')
+> #library('afex')
+> #library('plyr')
+> #library('dplyr')
+> #library('emmeans')
+> #library('knitr')
+> #library('psych')
+> #library('xfun')
+> #library('digest')
+> 
+> # for pdf plots
+> pdf.options(family="NimbusSan", useDingbats=FALSE)
+> 
+> df <- read.csv('fxtn.csv')
+> # if we need to remove a particular subset
+> #df <- filter(df, block == "test")
+> 
+> # filter out participants who apparantly did not pay attention to the task
+> #df <- filter(df, subj != "s01" & subj != "s02" & subj != "s04")
+> 
+> #subj,marker,ojbect,timestamp,x,y,duration,sacc_amplitude,sacc_dur
+> df$subj <- factor(df$subj)
+> df$marker <- factor(df$marker)
+> df$object <- factor(df$object)
+> 
+> describe(df$duration)
+   vars   n mean   sd median trimmed  mad  min  max range skew kurtosis   se
+X1    1 340  0.2 0.28   0.11    0.13 0.14 0.02 2.33  2.31 3.18    13.61 0.02
+> describe(df$sacc_amplitude)
+   vars   n   mean     sd median trimmed    mad min    max  range skew kurtosis
+X1    1 340 156.02 159.56  93.37  132.07 121.88   0 993.09 993.09  1.4     2.46
+     se
+X1 8.65
+> 
+> # selection of data points based on fixation duration and saccade amplitude
+> #df <- df[which(.08 < df$duration & df$duration < 1), ]
+> df <- df[which(df$sacc_amplitude > 0.00001), ]
+> 
+> #..Saccade amplitude..........................................................#
+> 
+> (fit <- aov_ez(data = df,
++                id = "subj",
++                dv = "sacc_amplitude",
++                within = c('marker','object'),
++                type = 3,
++                factorize = FALSE))
+Anova Table (Type 3 tests)
+
+Response: sacc_amplitude
+         Effect         df     MSE    F  ges p.value
+1        marker 1.06, 3.19 4870.47 0.24 .020    .671
+2        object       1, 3 2498.45 0.67 .027    .474
+3 marker:object 1.44, 4.31 2400.13 1.22 .065    .356
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘+’ 0.1 ‘ ’ 1
+
+Sphericity correction method: GG 
+> summary(fit)
+
+Univariate Type III Repeated-Measures ANOVA Assuming Sphericity
+
+              Sum Sq num Df Error SS den Df F value   Pr(>F)   
+(Intercept)   597628      1  26798.2      3 66.9031 0.003823 **
+marker          1233      2  15516.6      6  0.2384 0.794976   
+object          1669      1   7495.3      3  0.6682 0.473573   
+marker:object   4210      2  10344.4      6  1.2210 0.359007   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Mauchly Tests for Sphericity
+
+              Test statistic p-value
+marker               0.11668 0.11668
+marker:object        0.60787 0.60787
+
+
+Greenhouse-Geisser and Huynh-Feldt Corrections
+ for Departure from Sphericity
+
+               GG eps Pr(>F[GG])
+marker        0.53098     0.6707
+marker:object 0.71832     0.3564
+
+                 HF eps Pr(>F[HF])
+marker        0.5799179  0.6881432
+marker:object 1.1982506  0.3590067
+> 
+> # nicer table
+> kable(nice(fit,es="ges"))
+
+
+|Effect        |df         |MSE     |F    |ges  |p.value |
+|:-------------|:----------|:-------|:----|:----|:-------|
+|marker        |1.06, 3.19 |4870.47 |0.24 |.020 |.671    |
+|object        |1, 3       |2498.45 |0.67 |.027 |.474    |
+|marker:object |1.44, 4.31 |2400.13 |1.22 |.065 |.356    |
+> 
+> (t <- emmeans(fit, c('marker'), contr = 'pairwise'))
+$emmeans
+ marker emmean   SE df lower.CL upper.CL
+ absent    159 23.5  3     84.2      234
+ large     166 27.6  3     78.1      254
+ small     149 21.2  3     81.1      216
+
+Results are averaged over the levels of: object 
+Confidence level used: 0.95 
+
+$contrasts
+ contrast       estimate   SE df t.ratio p.value
+ absent - large    -7.11 34.9  3  -0.204  0.9775
+ absent - small    10.35 23.3  3   0.444  0.9006
+ large - small     17.46 13.4  3   1.305  0.4834
+
+Results are averaged over the levels of: object 
+P value adjustment: tukey method for comparing a family of 3 estimates 
+
+> tab <- summary(t$emmeans)
+> 
+> samp.plot <- ggplot(tab,
++                     aes(x = marker, y = emmean)) +
++                     geom_bar(position=position_dodge(), stat="identity",
++                           colour="#303030",fill="#d94801",alpha=.7) +
++ #                         colour="#303030",fill="#045a8d",alpha=.7) +
++ #                   scale_fill_brewer(palette="Blues") +
++                     scale_fill_brewer(palette="Oranges") +
++                     geom_errorbar(aes(ymin=emmean-SE, ymax=emmean+SE),
++                                   width=.2, size=.3,
++                                   position=position_dodge(.9)) +
++ 		    theme_bw(base_size=18) + 
++                     ylab("Mean saccade amplitude (deg.)") +
++                     xlab('Marker') +
++                     theme(legend.position = "none")
+> 
+> plotName = "./figs/samp.pdf"
+> pdf(plotName, encoding="ISOLatin2")
+> print(samp.plot)
+> dev.off()
+null device 
+          1 
+> #embedFonts(plotName, "pdfwrite", outfile = plotName,
+> #        fontpaths =
+> #          c("/sw/share/texmf-dist/fonts/type1/urw/",
+> #            "/usr/share/texmf/fonts/type1/urw/",
+> #            "/usr/local/teTeX/share/texmf-dist/fonts/type1/urw/",
+> #            "/opt/local/share/texmf-texlive/fonts/type1/",
+> #            "/usr/share/texmf-texlive/fonts/type1/urw/",
+> #            "/usr/local/texlive/texmf-local/fonts/type1/urw/"))
+> 
+> 
+> #..Fixation duration..........................................................#
+> (fit <- aov_ez(data = df,
++                id = "subj",
++                dv = "duration",
++                within = c('marker','object'),
++                type = 3,
++                factorize = FALSE))
+Anova Table (Type 3 tests)
+
+Response: duration
+         Effect         df  MSE    F  ges p.value
+1        marker 1.68, 5.03 0.02 0.77 .045    .489
+2        object       1, 3 0.01 0.62 .013    .490
+3 marker:object 1.62, 4.85 0.01 0.27 .010    .733
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘+’ 0.1 ‘ ’ 1
+
+Sphericity correction method: GG 
+> summary(fit)
+
+Univariate Type III Repeated-Measures ANOVA Assuming Sphericity
+
+               Sum Sq num Df Error SS den Df F value  Pr(>F)  
+(Intercept)   1.48866      1 0.290378      3 15.3799 0.02949 *
+marker        0.02110      2 0.082336      6  0.7689 0.50434  
+object        0.00608      1 0.029580      3  0.6163 0.48973  
+marker:object 0.00446      2 0.050020      6  0.2676 0.77388  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Mauchly Tests for Sphericity
+
+              Test statistic p-value
+marker               0.80736 0.80736
+marker:object        0.76387 0.76387
+
+
+Greenhouse-Geisser and Huynh-Feldt Corrections
+ for Departure from Sphericity
+
+               GG eps Pr(>F[GG])
+marker        0.83847     0.4892
+marker:object 0.80897     0.7334
+
+                HF eps Pr(>F[HF])
+marker        1.779137  0.5043429
+marker:object 1.617809  0.7738808
+> 
+> # nicer table
+> kable(nice(fit,es="ges"))
+
+
+|Effect        |df         |MSE  |F    |ges  |p.value |
+|:-------------|:----------|:----|:----|:----|:-------|
+|marker        |1.68, 5.03 |0.02 |0.77 |.045 |.489    |
+|object        |1, 3       |0.01 |0.62 |.013 |.490    |
+|marker:object |1.62, 4.85 |0.01 |0.27 |.010 |.733    |
+> 
+> describe(df$duration)
+   vars   n mean   sd median trimmed  mad  min  max range skew kurtosis   se
+X1    1 316 0.21 0.29   0.11    0.14 0.14 0.02 2.33  2.31  3.1    12.85 0.02
+> 
+> (t <- emmeans(fit, c('marker'), contr = 'pairwise'))
+$emmeans
+ marker emmean     SE df lower.CL upper.CL
+ absent  0.207 0.0405  3   0.0783    0.336
+ large   0.271 0.0708  3   0.0451    0.496
+ small   0.269 0.0942  3  -0.0303    0.569
+
+Results are averaged over the levels of: object 
+Confidence level used: 0.95 
+
+$contrasts
+ contrast       estimate     SE df t.ratio p.value
+ absent - large -0.06344 0.0615  3  -1.031  0.6105
+ absent - small -0.06235 0.0672  3  -0.928  0.6628
+ large - small   0.00109 0.0446  3   0.024  0.9997
+
+Results are averaged over the levels of: object 
+P value adjustment: tukey method for comparing a family of 3 estimates 
+
+> tab <- summary(t$emmeans)
+> 
+> fdur.plot <- ggplot(tab,
++                     aes(x = marker, y = emmean)) +
++                     geom_bar(position=position_dodge(), stat="identity",
++                           colour="#303030",fill="#d94801",alpha=.7) +
++ #                         colour="#303030",fill="#045a8d",alpha=.7) +
++ #                   scale_fill_brewer(palette="Blues") +
++                     scale_fill_brewer(palette="Oranges") +
++                     geom_errorbar(aes(ymin=emmean-SE, ymax=emmean+SE),
++                                   width=.2, size=.3,
++                                   position=position_dodge(.9)) +
++ 		    theme_bw(base_size=18) + 
++                     ylab("Mean fixation duration (sec.)") +
++                     xlab('Marker') +
++                     theme(legend.position = "none")
+> 
+> plotName = "./figs/dur.pdf"
+> pdf(plotName, encoding="ISOLatin2")
+> print(fdur.plot)
+> dev.off()
+null device 
+          1 
+> #embedFonts(plotName, "pdfwrite", outfile = plotName,
+> #        fontpaths =
+> #          c("/sw/share/texmf-dist/fonts/type1/urw/",
+> #            "/usr/share/texmf/fonts/type1/urw/",
+> #            "/usr/local/teTeX/share/texmf-dist/fonts/type1/urw/",
+> #            "/opt/local/share/texmf-texlive/fonts/type1/",
+> #            "/usr/share/texmf-texlive/fonts/type1/urw/",
+> #            "/usr/local/texlive/texmf-local/fonts/type1/urw/"))
+> 

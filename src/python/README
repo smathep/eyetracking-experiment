@@ -1,0 +1,9 @@
+For tm stuff, see: ad/src/amfoc2
+For wm stuff, see: sisterlab/src/matkids2
+
+TODO:
+
+- we need to get the AOIs and then process them to gat aoi_span which
+  is current aoi - prev_aoi (and could be negative, for regressions)
+
+- we need to output: aoi_label, aoi_order, aoi_span

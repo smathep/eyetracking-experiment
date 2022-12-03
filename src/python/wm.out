@@ -1,0 +1,89 @@
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ver_mjr = R.Version()$major
+> ver_mnr = unlist(strsplit(R.Version()$minor,"\\."))[1]
+> lpath = sprintf("~/AppData/Local/R/win-library/%s.%s",ver_mjr,ver_mnr)
+> rversion = R.Version()
+> platform = Sys.info()['sysname']
+> print(sprintf("R version %s.%s running on %s",ver_mjr,ver_mnr,platform))
+[1] "R version 4.2 running on Darwin"
+> if(platform == "Windows") {
++    if(!file.exists(lpath)) {
++      dir.create(lpath,recursive=TRUE)
++    }
++    libpath <- c(lpath)
++   .libPaths(libpath)
++ }
+> 
+> source('custom.R')
+> 
+> load.libraries(c('emmeans','sciplot','ez','psych','reshape','plyr','ggplot2','afex','dplyr','pastecs'),libpath)
+[1] "Loaded packages: "
+ [1] "pastecs"   "dplyr"     "afex"      "lme4"      "Matrix"    "ggplot2"  
+ [7] "plyr"      "reshape"   "psych"     "ez"        "sciplot"   "emmeans"  
+[13] "stats"     "graphics"  "grDevices" "utils"     "datasets"  "methods"  
+[19] "base"     
+> 
+> source("tmcustom.R") 
+> source("lwheatmap.R") 
+> source("WMSP.R") 
+[1] "Loaded packages: "
+ [1] "lattice"      "car"          "carData"      "gmodels"      "entropy"     
+ [6] "colorspace"   "RColorBrewer" "gplots"       "pastecs"      "dplyr"       
+[11] "afex"         "lme4"         "Matrix"       "ggplot2"      "plyr"        
+[16] "reshape"      "psych"        "ez"           "sciplot"      "emmeans"     
+[21] "stats"        "graphics"     "grDevices"    "utils"        "datasets"    
+[26] "methods"      "base"        
+> 
+> df <- read.csv("fxtn-aois.csv")
+> 
+> # ------------------------------------------------------------------------
+> # main analyses
+> #smin <- min(df$aoi_span)
+> #smax <- max(df$aoi_span)
+> smin <- -6
+> smax <- 6
+> 
+> # -- picking out individual conditions -----------------------------------
+> M <- zeroWM(smin,smax)
+> 
+> ddf <- df
+> #ddf
+> M_20 <- TransWMatrix(M,data=ddf,
++                     StimulusVar="exp_id",
++                     SubjectsVar="subj",
++                     SpanVar="aoi_span")
+[1] "Warning: "
+[1] "No word spans for stimulus: NA"
+[1] "Warning: "
+character(0)
+> M_20 <- M
+> M_20
+    -6   -5   -4   -3   -2   -1    0    1    2    3    4    5    6
+1 0.08 0.08 0.08 0.08 0.08 0.08 0.08 0.08 0.08 0.08 0.08 0.08 0.08
+> 
+> en_20 <- TransEntropy(M,data=ddf,
++                     StimulusVar="exp_id",
++                     SubjectsVar="subj",
++                     SpanVar="aoi_span")
+[1] "Warnings: "
+[1] "No word spans for stimulus: NA"
+[1] "Warnings: "
+character(0)
