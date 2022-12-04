@@ -369,10 +369,10 @@ def main(argv):
     subj = filename.split('-')[0]
     exp_id = filename.split('-')[1]
     ses_id = filename.split('-')[2]
-    marker = filename.split('-')[3]
-    object = filename.split('-')[4]
+    layout = filename.split('-')[3]
+    # object = filename.split('-')[4]
     print("subj, exp_id, ses_id, marker, object: ", \
-           subj, exp_id, ses_id, marker, object)
+           subj, exp_id, ses_id, layout)
 
     # here would have to assemble file name 'shot' to be museum_signage_?
 

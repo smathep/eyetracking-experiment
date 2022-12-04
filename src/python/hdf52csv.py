@@ -60,9 +60,18 @@ def hdf52csv(infile, outdir, width, height, dist):
         #   print("nrows: ",nrows)
         csvfile.seek(0)
         csvrows = csv.DictReader(csvfile, delimiter=',')
-        csvlist = list(csvrows)
+        # csvlist = list(csvrows)
         # print header
-    #   print("header: ",csvrows.fieldnames)
+        # print("header: ",csvrows.fieldnames)
+
+        rowsDict = [dict(r) for r in csvrows]
+
+        # for row in rowsDict:
+        #     print("row: ", row)
+        print("rowsDictSize: ", len(rowsDict))
+        print("test row 4: ", rowsDict[4]["stimulus_loop.thisIndex"])
+        csvreader = csvrows.reader
+        # print("values: ", csvlist.)
     else:
         print('csv file: ' + incsvfile + ' does NOT exist')
 
@@ -77,16 +86,16 @@ def hdf52csv(infile, outdir, width, height, dist):
 
     # find session_data_data...
     metatable = h5file.root.data_collection.session_meta_data
-    print("metatable: ", metatable)
+    # print("metatable: ", metatable)
 
     # first use class_table_mapping to get at paths to various datasets
     pathtable = h5file.root.class_table_mapping
-    print("pathtable: ", pathtable)
-    for rec in pathtable.iterrows():
-        print("rec['table_path']: ", rec['table_path'].decode('utf-8'))
+    # print("pathtable: ", pathtable)
+    # for rec in pathtable.iterrows():
+    #     print("rec['table_path']: ", rec['table_path'].decode('utf-8'))
     bespath = [rec['table_path'] for rec in \
                pathtable.where("""(class_name == 'GazepointSampleEvent')""")]
-    print("bespath: ", bespath)
+    # print("bespath: ", bespath)
 
     # from https://www.pytables.org/usersguide/tutorials.html
     # rows in class_table_mapping table give us path to other data objects
@@ -99,7 +108,7 @@ def hdf52csv(infile, outdir, width, height, dist):
         bespath = record['table_path'].decode('utf-8')
         # get table
         bestable = h5file.get_node(bespath)
-        print("bestable: ", bestable)
+        # print("bestable: ", bestable)
 
     # this is if we manually add in code to issue messages in PsychoPy
     # find message data...
@@ -109,15 +118,17 @@ def hdf52csv(infile, outdir, width, height, dist):
         mespath = record['table_path'].decode('utf-8')
         # get table
         mestable = h5file.get_node(mespath)
-        print("mestable: ", mestable)
+        # print("mestable: ", mestable)
 
     # init time vars
     st = 0.0
     et = math.inf
 
     # init condition vars
+    # layoutOrder = []
     marker = None
     object = None
+    loop_index = 0
 
     #  # alternative method: direct SQL-like query
     # for row in mestable.where('(category == "trial") & \
@@ -132,12 +143,14 @@ def hdf52csv(infile, outdir, width, height, dist):
     #     exp_id = row['experiment_id']
     #     ses_id = row['session_id']
 
+
     # print("mestable: ", mestable.iterrows)
     # this is if we manually add in code to issue messages in PsychoPy
     # process each pair of rows in message table: they contain start/end times
     for msg in mestable.iterrows():
         # get record info: first of pair of lines should be
         # category:'trial', text:'start'
+        # print("msg: ", msg)
         if msg['category'].decode('utf-8') == 'trial' and \
                 msg['text'].decode('utf-8') == 'beginStimuliFrame':
             # pick up start time
@@ -156,6 +169,9 @@ def hdf52csv(infile, outdir, width, height, dist):
             object = msg['text'].decode('utf-8')
             object = object.replace("'", "")
 
+        # if msg['category'].decode('utf-8') == 'stimulus_loop':
+        #     image_index = msg['text'].decode('utf-8')
+
         # get record info: second of pair of lines should be 'end'
         if msg['category'].decode('utf-8') == 'trial' and \
                 msg['text'].decode('utf-8') == 'endStimuliFrame':
@@ -170,13 +186,17 @@ def hdf52csv(infile, outdir, width, height, dist):
             print("object: ", object)
             print("st: ", st)
             print("et: ", et)
+            print("loop_index ", loop_index)
+            image_index = rowsDict[loop_index+2]["stimulus_loop.thisIndex"]
+            print("image_index ", image_index)
 
-            outfilename = "%s-%s-%s-%s-%s.csv" % (subj, exp_id, ses_id, marker, object)
+            outfilename = "%s-%s-%s-layout%s.csv" % (subj, exp_id, ses_id, image_index)
             outfile = open(outdir + outfilename, 'w+')
             print('Outfile: %s' % (outfilename))
             # write header
             strout = "x,y,d,t"
             outfile.write(strout + '\n')
+            loop_index += 1
 
             #     for row in bestable.where('(experiment_id == exp_id) & \
             #                                (session_id == ses_id) & \
