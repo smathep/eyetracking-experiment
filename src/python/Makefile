@@ -81,9 +81,11 @@ collate:
 
 stats:
 	R --vanilla < wm.R > wm.out
-	R --vanilla --args 6 < tm.R > tm.out
-	R --vanilla  < fxtn.R > fxtn.out
+# 	R --vanilla --args 6 < tm.R > tm.out
+# 	R --vanilla  < fxtn.R > fxtn.out
 #	R --vanilla  < pICALH.R > pICALH.out
+
+all: dirs raw process collate
 
 clean:
 	rm -rf __pycache__

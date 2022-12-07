@@ -165,13 +165,13 @@ def main(argv):
   smooth = False
   # screen height in pixels
   width = 1920
-  height = 1200
+  height = 1080
   # screen diagonal (in inches)
-  screen = 22
+  screen = 24
   # viewing distance (in inches)
   dist = 21.65
   # sampling rate
-  herz = 1000.0
+  herz = 60.0
   # smoothing (Butterworth) filter parameters: degree, cutoff
   sfdegree = 3
   sfcutoff = 1.0/herz # must be 0 < Wn < 1
@@ -349,7 +349,7 @@ def main(argv):
     ses_id = filename.split('-')[2]
     layout = filename.split('-')[3]
     # object = filename.split('-')[4]
-    print("subj, exp_id, ses_id, marker, object: ", \
+    print("subj, exp_id, ses_id, marker: ", \
            subj, exp_id, ses_id, layout)
 
     haveimage = True

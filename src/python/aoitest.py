@@ -133,7 +133,7 @@ def main(argv):
 # print("in" if aoi.inside(0.0,0.0) else "out")
 
   # process AOI file
-  aoidir = "../../../../aois/1920x1080/"
+  aoidir = "../../aois/"
 # aoifile = aoidir + "1.sla"
 
   file = None

@@ -23,16 +23,17 @@ def catCSVFile(infile,df,ct):
   subj = filename.split('-')[0]
   exp_id = filename.split('-')[1]
   ses_id = filename.split('-')[2]
-  marker = filename.split('-')[3]
-  object = filename.split('-')[4]
-  print("subj, exp_id, ses_id, marker, object: ", \
-         subj, exp_id, ses_id, marker, object)
-
+  layout = filename.split('-')[3]
+  # object = filename.split('-')[4]
+  print("subj, exp_id, ses_id, layout: ", \
+         subj, exp_id, ses_id, layout)
+  print("fileame: ", filename)
   # read lines, throwing away first one (header)
 # linelist = f.readlines()
 # linelist = f.read().split('\r')
   linelist = f.read().splitlines()
   header = linelist[0].split(',')
+  print("linelist: ", linelist)
   linelist = linelist[1:]
 
   # timestamp,x,y,duration,prev_sacc_amplitude,aoi_label
@@ -54,6 +55,7 @@ def catCSVFile(infile,df,ct):
     if label.strip() == "aoi_order":
       AOI_ORDER = idx
 
+  # print("printing")
   for line in linelist:
     entry = line.split(',')
 
@@ -67,12 +69,12 @@ def catCSVFile(infile,df,ct):
     aoi_label  = entry[AOI_LABEL]
     aoi_order  = entry[AOI_ORDER]
 
-    str = "%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ( \
+    str = "%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ( \
                          subj, \
                          exp_id, \
                          ses_id, \
-                         marker, \
-                         object, \
+                         layout, \
+                        #  object, \
                          timestamp,\
                          x,y,\
                          duration,\
@@ -81,6 +83,7 @@ def catCSVFile(infile,df,ct):
                          aoi_label,\
                          aoi_order,\
                          ct)
+    
     print(str, file=df)
     ct += 1
 
@@ -90,7 +93,7 @@ def catCSVFile(infile,df,ct):
 
 # clear out output file
 df = open("fxtn-aois.csv",'w')
-print("subj,exp_id,ses_id,marker,object,timestamp,x,y,duration,prev_sacc_amplitude,aoi_span,aoi_label,aoi_order,order", file=df)
+print("subj,exp_id,ses_id,layout,object,timestamp,x,y,duration,prev_sacc_amplitude,aoi_span,aoi_label,aoi_order,order", file=df)
 
 dir = './data/'
 

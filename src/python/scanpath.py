@@ -2310,7 +2310,7 @@ class Scanpath:
     outfile.close()
 
   def dumpFixatedAOIs(self,fileName,w,h,aoilist):
-
+    # print("aoilist: %s" % aoilist)
     outfile = open(fileName,'w')
     # aoi_span: distance between this AOI and previous
     # aoi_order: same as what aoi_label used to be (numerical order of AOI)
@@ -2321,20 +2321,24 @@ class Scanpath:
     prev_fixation=0
     prev_aoi=0
     for fx in self.fixations:
+      # print("fx: %s" % fx)
       x = fx.at(0) * float(w)
       y = fx.at(1) * float(h)
       inAOI = False
       for aoi in aoilist:
-        if aoi.inside(x,y + aoi.getHeight()):
+        print("aoi: %s" % aoi)
+        if aoi.inside(x,y + float(aoi.getHeight())):
           inAOI = True
+          print("aoi inside")
           break
         if inAOI:
+          print("aoi outside")
           # compute the AOI "span": this is a numerical distance of
           # where we came from, e.g., if 0 it's a refixation, if it's < 0
           # we've regressed (gone left in the sentence) an dif it's > 0
           # then we've skipping ahead
           span = 0 if prev_aoi == 0 else int(aoi.getLocation()) - prev_aoi
-          prev_aoi = int(aoi.getLocation())
+          # prev_aoi = int(aoi.getLocation())
           prev_sacc_amp = 0.0
           if prev_fixation > 0:
             sx = self.fixations[prev_fixation].at(0) * float(w)

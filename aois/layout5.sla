@@ -88,20 +88,20 @@
         </Sections>
         <MASTERPAGE PAGEXPOS="100" PAGEYPOS="20" PAGEWIDTH="1920" PAGEHEIGHT="1080" BORDERLEFT="0" BORDERRIGHT="0" BORDERTOP="0" BORDERBOTTOM="0" NUM="0" NAM="Normal" MNAM="" Size="Custom" Orientation="1" LEFT="0" PRESET="0" VerticalGuides="" HorizontalGuides="" AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0" pageEffectDuration="1" pageViewDuration="1" effectType="0" Dm="0" M="0" Di="0"/>
         <PAGE PAGEXPOS="100" PAGEYPOS="20" PAGEWIDTH="1920" PAGEHEIGHT="1080" BORDERLEFT="0" BORDERRIGHT="0" BORDERTOP="0" BORDERBOTTOM="0" NUM="0" NAM="" MNAM="Normal" Size="Custom" Orientation="1" LEFT="0" PRESET="0" VerticalGuides="" HorizontalGuides="" AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0" pageEffectDuration="1" pageViewDuration="1" effectType="0" Dm="0" M="0" Di="0"/>
-        <PAGEOBJECT XPOS="100" YPOS="20" OwnPage="0" ItemID="1790653917" PTYPE="2" WIDTH="1920" HEIGHT="1080" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="0" RATIO="1" Pagenumber="0" PFILE="../../../psmathe@g.clemson.edu - Google Drive/My Drive/CPSC 4120/CPSC 4120 Project/Product Images/Photos for PsychoPy/Slots/PNG/layout5.png" IRENDER="0" EMBEDDED="0" path="M0 0 L1920 0 L1920 1080 L0 1080 L0 0 Z" copath="M0 0 L1920 0 L1920 1080 L0 1080 L0 0 Z" gXpos="100" gYpos="20" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1"/>
+        <PAGEOBJECT XPOS="100" YPOS="20" OwnPage="0" ItemID="1790653917" PTYPE="2" WIDTH="1920" HEIGHT="1080" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="0" RATIO="1" Pagenumber="0" PFILE="../../../psmathe@g.clemson.edu - Google Drive/My Drive/CPSC 4120/CPSC 4120 Project/Product Images/Photos for PsychoPy/Slots/PNG/layout6.png" IRENDER="0" EMBEDDED="0" path="M0 0 L1920 0 L1920 1080 L0 1080 L0 0 Z" copath="M0 0 L1920 0 L1920 1080 L0 1080 L0 0 Z" gXpos="100" gYpos="20" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1"/>
         <PAGEOBJECT XPOS="831.340579710145" YPOS="67.0472571737054" OwnPage="0" ItemID="1791413725" PTYPE="6" WIDTH="456.884057971015" HEIGHT="432.952742826295" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR2="Black" PLINEART="1" path="M0 0 L456.884 0 L456.884 432.953 L0 432.953 L0 0 Z" copath="M0 0 L456.884 0 L456.884 432.953 L0 432.953 L0 0 Z" gXpos="831.340579710145" gYpos="67.0472571737054" gWidth="0" gHeight="0" LAYER="0">
             <PageItemAttributes>
-                <ItemAttribute Name="label" Type="string" Value="cart" Parameter="" Relationship="none" RelationshipTo="" AutoAddTo="none"/>
+                <ItemAttribute Name="label" Type="string" Value="watch" Parameter="" Relationship="none" RelationshipTo="" AutoAddTo="none"/>
             </PageItemAttributes>
         </PAGEOBJECT>
         <PAGEOBJECT XPOS="1448.36956521739" YPOS="592.228416593995" OwnPage="0" ItemID="1791315933" PTYPE="6" WIDTH="447.464" HEIGHT="454.529" FRTYPE="0" CLIPEDIT="1" PWIDTH="1" PCOLOR2="Black" PLINEART="1" path="M0 0 L447.464 0 L447.464 454.529 L0 454.529 L0 0 Z" copath="M0 0 L447.464 0 L447.464 454.529 L0 454.529 L0 0 Z" gXpos="1448.36956521739" gYpos="592.228416593995" gWidth="0" gHeight="0" LAYER="0">
             <PageItemAttributes>
-                <ItemAttribute Name="label" Type="string" Value="fruit_cup" Parameter="" Relationship="none" RelationshipTo="" AutoAddTo="none"/>
+                <ItemAttribute Name="label" Type="string" Value="banana_chips" Parameter="" Relationship="none" RelationshipTo="" AutoAddTo="none"/>
             </PageItemAttributes>
         </PAGEOBJECT>
         <PAGEOBJECT XPOS="220" YPOS="604.598908813678" OwnPage="0" ItemID="1798292445" PTYPE="6" WIDTH="459.5" HEIGHT="422.913043478261" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR2="Black" PLINEART="1" path="M0 0 L459.5 0 L459.5 422.913 L0 422.913 L0 0 Z" copath="M0 0 L459.5 0 L459.5 422.913 L0 422.913 L0 0 Z" gXpos="220" gYpos="604.598908813678" gWidth="0" gHeight="0" LAYER="0">
             <PageItemAttributes>
-                <ItemAttribute Name="label" Type="string" Value="nacho_chips" Parameter="" Relationship="none" RelationshipTo="" AutoAddTo="none"/>
+                <ItemAttribute Name="label" Type="string" Value="cookies" Parameter="" Relationship="none" RelationshipTo="" AutoAddTo="none"/>
             </PageItemAttributes>
         </PAGEOBJECT>
     </DOCUMENT>

@@ -1,2 +1,7 @@
 .DS_Store
 *.icloud
+src/python/plots/*
+src/python/data/*
+src/python/figs/*
+src/python/graphs/*
+
